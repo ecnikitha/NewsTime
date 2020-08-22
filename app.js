@@ -153,7 +153,7 @@ app.post("/login", function (req, res) {
   if (req.body.email.length == 0) {
     res.send("incorrect username or password!dd");
   } else {
-    users.findOne({email:req.body.email,password:req.body.password},(err,docs) => {
+    users.find({email:req.body.email,password:req.body.password},(err,docs) => {
 
       if(!err && docs.length!==0){
         req.session.loggedIn = true
