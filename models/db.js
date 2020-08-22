@@ -2,7 +2,7 @@
 
 
 
- mongoose.connect('mongodb://localhost:27017/portalDB',{useNewUrlParser: true},(err) =>{
+ mongoose.connect('mongodb+srv://newssite:newssite1234@cluster0.jcxlb.mongodb.net/portalDB?retryWrites=true&w=majority',{useNewUrlParser: true},(err) =>{
  	if (!err){ console.log('mongodb connection succeeded')}
  		else {console.log('error in DB connection:'+err)}
  });
