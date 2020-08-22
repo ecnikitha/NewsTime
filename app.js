@@ -157,10 +157,10 @@ app.post("/login", function (req, res) {
 
       if(!err && docs.length!==0){
         req.session.loggedIn = true
-        req.session.loggedInUsername = docs.username
-        req.session.loggedInUserName = docs.name
-        req.session.loggedInUserID = docs._id
-        req.session.loggedInUserType = docs.userType
+        req.session.loggedInUsername = docs[0].username
+        req.session.loggedInUserName = docs[0].name
+        req.session.loggedInUserID = docs[0]._id
+        req.session.loggedInUserType = docs[0].userType
         res.redirect("/");
         console.log("Session = ",req.session)
       } else {
