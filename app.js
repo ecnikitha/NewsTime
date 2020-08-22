@@ -256,6 +256,6 @@ app.use("/category", categoriesController);
 app.use("/managenews", newsController);
 app.use("/authors",authorsController)
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server is running on the port 3000");
 });
