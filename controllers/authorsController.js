@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const authors = mongoose.model('users');
 const news = mongoose.model('news');
 const categories = mongoose.model('categories');
-var url=mongoose.connect('mongodb://localhost:27017/portalDB',{useNewUrlParser: true},(err) =>{
-  if (!err){ console.log('mongodb connection succeeded')}
-    else {console.log('error in DB connection:'+err)}
- });
+// var url=mongoose.connect('mongodb://localhost:27017/portalDB',{useNewUrlParser: true},(err) =>{
+//   if (!err){ console.log('mongodb connection succeeded')}
+//     else {console.log('error in DB connection:'+err)}
+//  });
 
 router.get("/", (req,res) => {
   res.redirect("/authors/listauth")
