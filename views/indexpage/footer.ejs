@@ -1,0 +1,30 @@
+</body>
+<script>
+    const showFullNews = (event,newsId) => {
+        event.preventDefault();
+        const element = document.getElementById(newsId);
+        if (element.style.display === 'none') {
+            element.style.display  = 'inline';
+            event.target.innerHTML = "Hide"
+        }
+        else {
+            element.style.display = 'none';
+            event.target.innerHTML = "See More";
+        }
+        console.log(event)
+    }
+
+    const activeLinkPopulator = () => {
+        let links = document.getElementsByClassName("nav-link");
+        let currentUrl = window.location.pathname;
+        console.log("current URL = ",currentUrl)
+        for(let i=0;i<links.length;i++) {
+            console.log(links[i])
+            if(links[i].pathname == currentUrl) {
+                links[i].className = "nav-link active"
+            }
+        }
+    }
+    activeLinkPopulator();
+</script>
+</html>

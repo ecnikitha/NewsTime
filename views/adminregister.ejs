@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+  <br> 
+    <br> 
+    <br> 
+    <div class="container" > 
+        <div class="row"> 
+        <div class="col-md-3"> 
+                    
+        </div> 
+                
+        <div class="col-md-6 main"> 
+                    
+            <form action="/adminregister" method="post"> 
+                <% if (anyMessage) { %>
+                    <% if (messageType === 'error') { %>
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> <%=  message %>
+                    </div>
+                    <% } else { %>
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> <%= message %>
+                            <a href="/login">Login?</a>
+                        </div>
+                    <% } %>  
+
+                <% } %> 
+                    
+            <h1> Admin Registration form </h1> 
+                            
+            <input class="box" type="email" name="email" id="email"
+            placeholder="UserName" required /><br> 
+                            
+                            
+            <input class="box" type="password" name="password"
+            id="password" placeholder="Password " required/><br> 
+                             
+                        <br> 
+            <input type="submit" id="submitDetails"
+            name="submitDetails" value="Submit" /><br> 
+                    
+            </form> 
+                    
+        </div> 
+                
+                
+        <div class="col-md-3"> 
+        </div> 
+                
+    </div> 
+    </div>
+
+</body>
+</html>
+
+    

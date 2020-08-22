@@ -1,0 +1,31 @@
+<h3><a class="btn btn-secondary" href="/managenews"><i class="fa fa-plus"></i> Add News</a>
+<a class="btn btn-info" href="/controlpanel"><i class="fa fa-list-alt"></i> Back to Portal</a></h3>
+<table class="table table-striped" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th>POSTEDBY</th>
+            <th>DATETIME</th>
+            <th>HEADLINES</th>
+            <th>CATEGORY</th>
+            <th>DETAILED NEWS</th>
+            <th>ACTION</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list2}}
+        <tr>
+        <td>{{this.postedBy}}</td>
+        <td>{{ this.date }}</td>
+            <td>{{ this.NewsHeading }}</td>
+             <td>{{ this.newscategory }}</td>
+            <td style="overflow-wrap: break-word;">{{ this.BreifNews }}</td>
+
+            <td>
+                <a href="/managenews/update/{{this.id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/managenews/delete/{{this.id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

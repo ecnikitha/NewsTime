@@ -1,0 +1,27 @@
+<h3><a class="btn btn-secondary" href="/authors/add"><i class="fa fa-plus"></i> Insert New Author</a>
+<a class="btn btn-info" href="/controlpanel"><i class="fa fa-list-alt"></i> Back to Portal</a></h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>AUTHOR NAME</th>
+            <th>MAILID</th>
+            <th>PASSWORD</th>
+            <th>ACTION</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list1}}
+        <tr>
+            <td>{{ this.name }}</td>
+            <td>{{ this.email }}</td>
+            <td>{{ this.password }}</td>
+
+            <td>
+                <a href="/authors/update/{{this.id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/authors/delete/{{this.id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

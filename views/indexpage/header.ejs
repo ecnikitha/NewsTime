@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>NewsTime - Daily News at your fingertips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <h1 style="text-align:center">NEWSTIME</h1>
+    <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-sm justify-content-center">
+        <!-- Links -->
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <% for (var i=0; i < categories.length; i++) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/news/<%= categories[i] %>">
+                    <%= categories[i] %>
+                </a>
+            </li>
+            <% } %>
+            <li class="nav-item navbar-right">
+                <div class="dropdown dropdown-toggle" data-toggle="dropdown">
+                    Authors
+
+                    <div class="dropdown-menu">
+                        <% for (var i=0; i < authors.length; i++) { %>
+                            <span class="dropdown-item" style="cursor:pointer" onClick="window.location.href ='/authors/<%= authors[i].username %>'"><%= authors[i].name%></span>
+                        <% } %>
+
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        <% if (isLoggedIn) { %>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Hey <%= loggedInUserName%>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/controlpanel">
+                   Control Panel
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                    Logout
+                </a>
+            </li>
+        </ul>
+        <%  } else { %>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/login">
+                    Login
+                </a>
+            </li>
+        </ul>
+        <% } %>
+
+    </nav>

@@ -1,0 +1,29 @@
+<h3>{{viewTitle}}</h3>
+<form action="{{this.author._id}}" method="POST" autocomplete="off">
+<input type="hidden" name="_id" value="{{Authors._id}}">
+<div class="form-group">
+<label> AUTHOR NAME </label>
+<input type="text" class="form-control" name="name" placeholder="Enter the name of the author" value="{{this.author.name}}">
+<div class="text-danger">
+{{Author.authorError}}</div>
+</div>
+<div class="form-group">
+<label> MAIL ID </label>
+<input type="text" class="form-control" name="authorEmail" placeholder="Enter the authors mailid" value="{{this.author.email}}">
+<div class="text-danger">
+{{Authors.authorEmailError}}</div>
+</div>
+<div class="form-group">
+<label> PASSWORD</label>
+<input type="text" class="form-control" name="password" placeholder="Enter the password" value="{{this.author.password}}">
+<div class="text-danger">
+{{Authors.passwordError}}</div>
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+<a class="btn btn-secondary" href="/authors/listauth"><i class="fa fa-list-alt"></i> View All</a>
+<a class="btn btn-info" href="/controlpanel"><i class="fa fa-list-alt"></i> Back to Portal</a>
+
+
+</div>
+</form>

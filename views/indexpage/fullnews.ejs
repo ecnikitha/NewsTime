@@ -1,0 +1,26 @@
+<%- include('header')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col mx-auto text-center">
+            <div class="card" style="width:100%;height:1000px;margin:20px;">
+                <div style="height:450px">
+                    <img class="card-img-top"
+                        src="<%= news.newsImageURL %>"
+                        alt="Card image" style="height:100%;width:100%" />
+                </div>
+
+                <div class="card-body">
+                    <p class="card-title" style="font-weight:bold;font-size:15px;">
+                        <%= news.newsHeading %> </p>
+                    <p class="card-text"> <span style="color:red;">Posted By: </span> <%= news.postedBy %></p>
+                    <p class="card-text" style="font-size:13px;"><%= news.date %></p>
+                    <p class="card-text" id="full-news" style="display: block;font-size:12px;">
+                        <%= news.briefNews %>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

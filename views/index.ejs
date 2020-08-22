@@ -1,0 +1,33 @@
+<%- include('partials/header')%>
+        
+        <div class="container">
+
+            <div class="row">
+                <% for (var i=0; i < articles.length; i++) { %>
+                    <div class="col-md-4">
+                        <div class="card" style="width:350px;height:500px;margin:20px;">
+                            <div style="height:200px">
+                                <img class="card-img-top" src="<%= articles[i].urlToImage %>" alt="Card image" style="height:100%" />
+                            </div>
+                            
+                            <div class="card-body">
+                                <p class="card-title">
+                                    <%= articles[i].title %></p>
+                                <p class="card-text"><i> <%= articles[i].postedBy %></i> </p>
+                                <p class="card-text" id="full-news" style="display: block;font-size:10px;"><%= articles[i].description %></p>
+                                <a class="btn btn-primary" href="<%= articles[i].url %>">See Full</a>
+                            </div>
+            
+                        </div>
+                    </div>
+                <% } %>
+        
+            </div>
+        </div>
+
+
+
+
+
+
+<%- include('partials/footer')%>
