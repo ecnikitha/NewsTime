@@ -39,7 +39,7 @@ app.set("view engine", "hbs");
 const categoriesController = require("./controllers/categoriesController");
 const authorsController = require("./controllers/authorsController");
 const newsController = require("./controllers/newsController");
-const authornewsController = require("./controllers/authornewsController");
+//const authornewsController = require("./controllers/authornewsController");
 
 //End of Controllers
 
@@ -57,6 +57,20 @@ app.get("/news/:category", async function (req, res) {
   //     })
   let news_articles = [];
 
+  // await news.find({ newsCategory: category }).exec((err, docs) => {
+  //   if (!err) {
+  //     for (let news of docs) {
+  //       news_articles.push(news);
+  //     }
+  //   } else {
+  //     console.log("Error in retrieving employee list :" + err);
+  //   }
+  // });
+
+  let categoriesList = [];
+  
+
+  
   await news.find({ newsCategory: category }).exec((err, docs) => {
     if (!err) {
       for (let news of docs) {
@@ -65,27 +79,32 @@ app.get("/news/:category", async function (req, res) {
     } else {
       console.log("Error in retrieving employee list :" + err);
     }
-  });
-
-  let categoriesList = [];
-  await categories.find((err, docs) => {
-    if (!err) {
-      let categories = [];
-      for (let cat of docs) {
-        categoriesList.push(cat.category);
+    categories.find((err, docs) => {
+      if (!err) {
+        let categories = [];
+        for (let cat of docs) {
+          categoriesList.push(cat.category);
+        }
+      } else {
+        console.log("Error in retrieving categories list list :" + err);
       }
-    } else {
-      console.log("Error in retrieving employee list :" + err);
-    }
+      res.render("indexpage/news.ejs", {
+        articles: news_articles,
+        authors: authors,
+        categories: categoriesList,
+        isLoggedIn:req.session.loggedIn,
+        loggedInUserName:req.session.loggedInUserName
+      });
+    });
   });
   console.log("The session in category news = ",req.session)
-  res.render("indexpage/news.ejs", {
-    articles: news_articles,
-    authors: authors,
-    categories: categoriesList,
-    isLoggedIn:req.session.loggedIn,
-    loggedInUserName:req.session.loggedInUserName
-  });
+  // res.render("indexpage/news.ejs", {
+  //   articles: news_articles,
+  //   authors: authors,
+  //   categories: categoriesList,
+  //   isLoggedIn:req.session.loggedIn,
+  //   loggedInUserName:req.session.loggedInUserName
+  // });
 });
 
 app.get("/", async function (req, res) {
