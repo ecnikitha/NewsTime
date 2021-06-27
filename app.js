@@ -132,7 +132,7 @@ app.get("/", async function (req, res) {
 
   console.log("The Session = ",req.session)
   res.render("indexpage/index.ejs", {
-    articles: news_articles,
+    articles: news_articles.reverse(),
     authors: authorsList,
     categories: categoriesList,
     isLoggedIn:req.session.loggedIn,
